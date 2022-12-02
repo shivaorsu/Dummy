@@ -38,17 +38,32 @@ const AvailableProducts = (props) => {
     },
   ];
   console.log(productsArr);
-  return (
-    <section>
-      <ul>{productsArr.map((prod) => {
-    console.log(prod);
+
+  // const style={
+  //   display:grid
+  //   flexDirection:"row"
+  //   }
+
+
+  
     return (
-      <Product title={prod.title} price={prod.price} image={prod.imageUrl} />
-    );
-  })}</ul>
+      <section>
+         <ul>
+        {productsArr.map((prod) => {
+          return (
+            <Product
+              title={prod.title}
+              price={prod.price}
+              image={prod.imageUrl}
+            />
+          );
+        })}
+      </ul>
     </section>
   );
 };
+  
+  
 
 export default AvailableProducts;
 

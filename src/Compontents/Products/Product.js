@@ -1,6 +1,7 @@
 import React from "react";
 
 // import AvailableProducts from "./AvailbleProducts";
+import classes from "../Cart/CartButton.module.css";
 
 const Product = (props) => {
     return <li>
@@ -9,7 +10,7 @@ const Product = (props) => {
             
             <img src={props.image} alt="some images"></img>
             <h1>{props.price}</h1>
-            <button>Add To Cart</button>
+            <button className={classes.click}>Add To Cart</button>
         </div>
     </li>
 }

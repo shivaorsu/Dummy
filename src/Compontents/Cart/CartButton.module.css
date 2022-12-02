@@ -15,3 +15,11 @@
     color: #56ccf2;
     font-size: 22px;
   }
+  .click {
+    margin-right:10px;
+    border: 2px solid #7d56f2;
+    padding: 4px 12px;
+    color:black;
+    border-radius: 12px;
+  }
+  
