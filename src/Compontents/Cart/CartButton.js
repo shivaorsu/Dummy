@@ -8,7 +8,6 @@ const CartButton = () => {
                 Cart
             </div>
             <div className={classes.badge}>
-                0
             </div>
 
         </div>

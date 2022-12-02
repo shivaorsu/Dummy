@@ -14,9 +14,11 @@ const Header = (props) => {
                 <CartButton/>
             </div>
             <div className={classes.generics}>
-                <h1 >The Generics
+                <h1 >The Generics </h1>
 
-                </h1>
+            </div>
+            <div className={classes.music}>
+              <h2>Music</h2>
             </div>
         </div>
     )

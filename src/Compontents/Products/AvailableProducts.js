@@ -51,3 +51,4 @@ const AvailableProducts = (props) => {
 };
 
 export default AvailableProducts;
+
