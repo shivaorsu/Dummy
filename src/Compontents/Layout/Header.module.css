@@ -1,0 +1,35 @@
+.allheader {
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+  align-items: center;
+}
+
+.header-links {
+  display: flex;
+  gap: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+
+  color: white;
+}
+
+.generics {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  height: 200px;
+  background-color: #777777;
+  text-align: center;
+}
