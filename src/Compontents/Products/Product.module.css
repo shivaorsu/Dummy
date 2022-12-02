@@ -10,8 +10,8 @@
 
 .button1 {
   display: flex;
-  padding: 15px;
-  background-color: #777;
+  padding: 18px;
+  background-color: rgb(176, 157, 205);
   border: none;
   border-radius: 7px;
   margin: auto;
