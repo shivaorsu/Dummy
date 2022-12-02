@@ -1,0 +1,19 @@
+.list {
+    text-align: center;
+    float: left;
+    zoom: 1;
+    margin: 7rem;
+    list-style: none;
+    margin-left: 15rem;
+    margin-bottom: 0rem;
+}
+
+.button1 {
+  display: flex;
+  padding: 15px;
+  background-color: #777;
+  border: none;
+  border-radius: 7px;
+  margin: auto;
+  cursor: pointer;
+}
