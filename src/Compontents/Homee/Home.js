@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import playButton from '../../image/play.png';
+import playButton from '../Image/play.jpg'
 import classes from './Home.module.css'
 
 const Home = () => {

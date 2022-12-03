@@ -1,21 +1,16 @@
 .header {
   position: fixed;
+  padding: 10px 0;
   top: 0;
-  left: 0;
+
   width: 100%;
   height: 2rem;
   background-color: #080808;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 30%;
- 
-  
 }
 
-.music{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.music {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   text-align: center;
   padding: 20px;
 }
@@ -32,11 +27,19 @@
   background-color: grey;
 }
 
-.button {
-    
-  padding: 0 10%;
-  align-items: flex-end;
-  padding: 0 10%;
-  float: right;
-
+.btn {
+  color: #080808;
+  margin: 10px 0;
+  position: absolute;
+  right: 2rem;
+  top: 0;
+}
+.navlink {
+  color: white;
+  padding: 0 10px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

@@ -8,12 +8,16 @@ const Header = (props) => {
     <Fragment>
 
       <header className={classes.header}>
-        
-        <NavLink to ="/home"><span>HOME</span></NavLink>
-        <NavLink to ="/store"><span>STORE</span></NavLink>
-        <NavLink to ="/about"><span>ABOUT</span></NavLink>
-        <button className={classes.button} onClick={props.onShowCart}> Cart </button>
-        <span> 3 </span>
+        <div className={classes.container}>
+        <NavLink className={classes.navlink} to ="/"><span>HOME</span></NavLink>
+        <NavLink className={classes.navlink} to ="/store"><span>STORE</span></NavLink>
+        <NavLink  className={classes.navlink}to ="/about"><span>ABOUT</span></NavLink>
+        <NavLink  className={classes.navlink}to ="/contact_us"><span>CONTACT US</span></NavLink>
+        </div>
+        {/* <button>Cart</button> */}
+
+        <button className={classes.btn} onClick={props.onShowCart}> Cart  <span> 3 </span></button>
+       
         
 
       </header>
