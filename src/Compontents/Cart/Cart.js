@@ -26,10 +26,10 @@ const Cart = (props) => {
   // let total = 0;
   // total = total + cartElements[0].price;
   return (
-    <Modal onClose={props.onClose}>
+    <Modal>
       <section className={classes.section}>
       <h2 className={classes.cart}> CART </h2>
-        <button classname={classes.cancel} onClick={props.onClose}> x </button>
+        <button classname={classes.button} onClick={props.onClose}> x </button>
       </section>
       <div className={classes.div}>
         <span> ITEM </span>

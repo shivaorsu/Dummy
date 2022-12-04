@@ -12,18 +12,17 @@ import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
 
 function App() {
-  const [cartisShown, setCartIsShown] = useState(false);
-
-  const showCartHandler = () => {
+  const[cartIsShown,setCartIsShown]=useState(false)
+  const showCartHandler=()=>{
     setCartIsShown(true);
-  };
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  }
+  const HideCartHandler=()=>{
+    setCartIsShown(false)
+  }
   return (
     <CartProvider>
-      {cartisShown && <Cart onClose={hideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
+       {cartIsShown && <Cart onClose={HideCartHandler}/>}
+      <Header  onShowCart={showCartHandler}/>
       <main>
         <Routes>
           <Route path="/store" element={<Products />} />
