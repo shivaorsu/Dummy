@@ -1,18 +1,23 @@
 .divheader {
-    padding: 0%;
+    padding: 45px;
     background-color: gray;
 }
 .img {
     width: 5%;
+    text-align: center;
 
 }
 
 .button {
     background-color: transparent;
-    color: blue;
+    color: white;
     border-color: aqua;
+    text-align: center;
 }
 
 .h2 {
+    text-align: center;
+}
+.para{
     text-align: center;
 }

@@ -1,3 +1,4 @@
+
 import React, { Fragment } from "react";
 import playButton from '../Image/play.jpg'
 import classes from './Home.module.css'
@@ -13,7 +14,7 @@ const Home = () => {
             <h2 className={classes.h2}> Tours </h2>
 
             <section>
-                <div>
+                <div className={classes.para}>
                     <p> JUL16 DETROIT, MIDTE ENERGY MUSIC THEATRE </p>
                     <p> JUL19 TORONTO, ON BUDWEISER STAGE</p>
                 </div>

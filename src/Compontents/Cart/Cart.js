@@ -1,16 +1,14 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 
 import Modal from "../UI/Modal";
 
-import classes from './Cart.module.css';
+import classes from "./Cart.module.css";
 import CartContext from "../Store/cart-context";
 
-
-
 const Cart = (props) => {
-  const cartCtx=useContext(CartContext);
+  const cartCtx = useContext(CartContext);
   let totalAmount = 0;
-   cartCtx?.items?.forEach((items) => {
+  cartCtx?.items?.forEach((items) => {
     totalAmount = totalAmount + items.price;
   });
 
@@ -18,18 +16,24 @@ const Cart = (props) => {
     <ul className={classes["cart-items"]}>
       {cartCtx?.items?.map((item) => (
         <li>
-          <CartItems key={item.id} id= {item.id} img={item.img} title={item.title} quantity={item.quantity} price={item.price} />
+          <CartItems
+            key={item.id}
+            id={item.id}
+            img={item.img}
+            title={item.title}
+            quantity={item.quantity}
+            price={item.price}
+          />
         </li>
       ))}
     </ul>
   );
-  // let total = 0;
-  // total = total + cartElements[0].price;
+
   return (
     <Modal>
       <section className={classes.section}>
-      <h2 className={classes.cart}> CART </h2>
-        <button classname={classes.button} onClick={props.onClose}> x </button>
+        <h2 className={classes.cart}> CART </h2>
+        <button className={classes.cancel}onClick={props.onClose}> x </button>
       </section>
       <div className={classes.div}>
         <span> ITEM </span>
