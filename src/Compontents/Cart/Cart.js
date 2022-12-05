@@ -4,6 +4,7 @@ import Modal from "../UI/Modal";
 
 import classes from "./Cart.module.css";
 import CartContext from "../Store/cart-context";
+import CartItems from "./CartItem";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -11,24 +12,8 @@ const Cart = (props) => {
   cartCtx?.items?.forEach((item) => {
     totalAmount = totalAmount + item.price;
   });
-
-  const CartItems = (
-    <ul className={classes["cart-items"]}>
-      {cartCtx.items.map((item) => (
-        <li className={classes.coloumn}>
-          <CartItems
-            key={item.id}
-            id={item.id}
-            img={item.img}
-            title={item.title}
-            quantity={item.quantity}
-            price={item.price}
-          />
-        </li>
-      ))}
-    </ul>
-  );
-
+  console.log(cartCtx.item);
+  
   return (
     <Modal onClose={props.onClose}>
       <section className={classes.section}>
@@ -42,7 +27,16 @@ const Cart = (props) => {
         <span className={classes.item}> PRICE </span>
         <span className={classes.item}> QUANTITY </span>
       </div>
-      {CartItems}
+      {cartCtx.item.map((item) => (
+        <CartItems
+          key={item.id}
+          id={item.id}
+          img={item.img}
+          title={item.title}
+          quantity={item.quantity}
+          price={item.price}
+        />
+      ))}
       <h2 className={classes.h2}> Total ${totalAmount} </h2>
 
       <button className={classes.button}>PURCHASE </button>

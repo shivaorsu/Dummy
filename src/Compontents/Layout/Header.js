@@ -22,7 +22,7 @@ const Header = (props) => {
         
 
       </header>
-      <h1 className={classes.h1}> The Generics </h1>
+      
 
     </Fragment>
     

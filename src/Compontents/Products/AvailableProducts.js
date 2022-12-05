@@ -55,7 +55,7 @@ const AvailableProducts = (props) => {
       <ul>{productsArr.map((prod) => {
     console.log(prod);
     return (
-      <Product title={prod.title} price={prod.price} image={prod.imageUrl} key={prod.title}/>
+      <Product title={prod.title} price={prod.price} image={prod.imageUrl} id={Math.floor(Math.random()*10)}/>
     )
   })}</ul>
     </section>

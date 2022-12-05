@@ -11,10 +11,13 @@ const CartProvider = (props) => {
   const [items, setItems] = useState([]);
 
   const addItemToCartHandler = (item) => {
+    
     setItems([...items, item]);
   };
+  console.log(items)
+
   const cartContext = {
-    item: [],
+    item: items,
     totalAmount: 0,
     addItem: addItemToCartHandler,
   };
