@@ -50,24 +50,16 @@ const AvailableProducts = (props) => {
 
 
   
+  return (
+    <section>
+      <ul>{productsArr.map((prod) => {
+    console.log(prod);
     return (
-      <section>
-         <ul>
-        {productsArr.map((prod) => {
-          return (
-            <Product
-              title={prod.title}
-              price={prod.price}
-              image={prod.imageUrl}
-            />
-          );
-        })}
-      </ul>
+      <Product title={prod.title} price={prod.price} image={prod.imageUrl} key={prod.title}/>
+    )
+  })}</ul>
     </section>
   );
 };
-  
-  
 
 export default AvailableProducts;
-

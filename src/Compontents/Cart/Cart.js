@@ -8,14 +8,14 @@ import CartContext from "../Store/cart-context";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   let totalAmount = 0;
-  cartCtx?.items?.forEach((items) => {
-    totalAmount = totalAmount + items.price;
+  cartCtx?.items?.forEach((item) => {
+    totalAmount = totalAmount + item.price;
   });
 
   const CartItems = (
     <ul className={classes["cart-items"]}>
-      {cartCtx?.items?.map((item) => (
-        <li>
+      {cartCtx.items.map((item) => (
+        <li className={classes.coloumn}>
           <CartItems
             key={item.id}
             id={item.id}
@@ -30,15 +30,17 @@ const Cart = (props) => {
   );
 
   return (
-    <Modal>
+    <Modal onClose={props.onClose}>
       <section className={classes.section}>
-        <h2 className={classes.cart}> CART </h2>
-        <button className={classes.cancel}onClick={props.onClose}> x </button>
+        <span> CART </span>
+        <button onClick={props.onClose} className={classes.cancel}>
+          x
+        </button>
       </section>
       <div className={classes.div}>
-        <span> ITEM </span>
-        <span> PRICE </span>
-        <span> QUANTITY </span>
+        <span className={classes.item}> ITEM </span>
+        <span className={classes.item}> PRICE </span>
+        <span className={classes.item}> QUANTITY </span>
       </div>
       {CartItems}
       <h2 className={classes.h2}> Total ${totalAmount} </h2>
