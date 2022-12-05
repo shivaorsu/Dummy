@@ -14,7 +14,7 @@ const Contact = (props) => {
         console.log(contact)
 
         const response = await fetch(
-            "https://react-http-1fb1e-default-rtdb.firebaseio.com/contact.json",
+            "https://booking-id-default-rtdb.firebaseio.com/contact.json",
             {
               method: "POST",
               body: JSON.stringify(contact),
