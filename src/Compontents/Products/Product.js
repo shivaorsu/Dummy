@@ -15,7 +15,10 @@ const Product = (props) => {
   return (
     <Fragment>
       <li className={classes.list}>
-        <Link to={'./store/p3'}>
+        <Link to={{
+              pathname: "store/p3",
+           
+            }}>
           <div>
             <h3>{props.title}</h3>
             <img src={props.image} alt="some images"></img>

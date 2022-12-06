@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Route, Routes} from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
 import Footer from "./Compontents/Layout/Footer";
@@ -28,18 +27,27 @@ function App() {
       <Header onShowCart={showCartHandler} />
       <h1 className={classes.h1}> The Generics </h1>
       <main>
-      
-        <Routes>
-        <Route path="/store" element={<Products />} />
-          <Route path="/about" element={<About />} />
+        <Switch>
+          <Route path="/store" exact>
+            <Products />
+          </Route>
 
-          <Route path="/" element={<Home />} exast />
+          <Route path="/about">
+            <About />
+          </Route>
 
-          <Route path="/contact_us" element={<Contact />} />
+          <Route path="/" >
+            <Home />
+          </Route>
 
-           <Route path="/store/:product_id" element={<ProductDetail />}/> 
-          </Routes>
-        
+          <Route path="/contact_us">
+            <Contact />
+          </Route>
+
+          <Route path="store/p3">
+            <ProductDetail />
+          </Route>
+        </Switch>
       </main>
       <Footer />
     </CartProvider>
