@@ -11,7 +11,7 @@ import About from "./Compontents/About/About";
 import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
 import classes from "./Compontents/Layout/Header.module.css";
-import ProductDetail from "./Compontents/Products/ProductDetails";
+import ProductDetails from "./Compontents/Products/ProductDetails";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -36,7 +36,7 @@ function App() {
             <About />
           </Route>
 
-          <Route path="/" >
+          <Route path="/" exact>
             <Home />
           </Route>
 
@@ -44,8 +44,8 @@ function App() {
             <Contact />
           </Route>
 
-          <Route path="store/p3">
-            <ProductDetail />
+          <Route path="/store/:productDetails">
+            <ProductDetails />
           </Route>
         </Switch>
       </main>

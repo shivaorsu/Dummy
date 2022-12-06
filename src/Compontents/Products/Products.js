@@ -5,7 +5,8 @@ import classes from './Products.module.css';
 const Products = (props) => {
     return(
       <div className={classes.wraper}>
-      <h2>MUSIC </h2>
+      {/* <h2>MUSIC </h2> */}
+
       <AvailableProducts />;
     </div>
     )

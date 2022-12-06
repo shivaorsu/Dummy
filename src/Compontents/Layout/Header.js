@@ -11,8 +11,8 @@ const Header = (props) => {
         <div className={classes.container}>
         <NavLink className={classes.navlink} to ="/"><span>HOME</span></NavLink>
         <NavLink className={classes.navlink} to ="/store"><span>STORE</span></NavLink>
-        <NavLink  className={classes.navlink}to ="/about"><span>ABOUT</span></NavLink>
-        <NavLink  className={classes.navlink}to ="/contact_us"><span>CONTACT US</span></NavLink>
+        <NavLink  className={classes.navlink} to ="/about"><span>ABOUT</span></NavLink>
+        <NavLink  className={classes.navlink} to ="/contact_us"><span>CONTACT US</span></NavLink>
         </div>
         {/* <button>Cart</button> */}
 
