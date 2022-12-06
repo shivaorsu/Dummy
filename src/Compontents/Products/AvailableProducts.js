@@ -1,8 +1,5 @@
 import React from "react";
 import Product from "./Product";
-
-
-
 const AvailableProducts = (props) => {
   const productsArr = [
     {
@@ -42,14 +39,6 @@ const AvailableProducts = (props) => {
     },
   ];
   console.log(productsArr);
-
-  // const style={
-  //   display:grid
-  //   flexDirection:"row"
-  //   }
-
-
-  
   return (
     <section>
       <ul>{productsArr.map((prod) => {
