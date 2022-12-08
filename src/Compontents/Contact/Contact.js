@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, {useRef } from "react";
 import classes from './Contact.module.css';
 
 const Contact = (props) => {
