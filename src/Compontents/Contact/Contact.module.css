@@ -1,0 +1,20 @@
+.contact{
+    margin: 2rem auto;
+    padding: 0 10rem;
+    text-align: center;
+}
+.contact form{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: start;
+}
+.contact input{
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.contact button{
+    margin-top: 10px;
+    padding: 10px;
+
+}

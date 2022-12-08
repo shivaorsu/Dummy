@@ -1,4 +1,5 @@
 import React, { Fragment, useRef } from "react";
+import classes from './Contact.module.css';
 
 const Contact = (props) => {
     const usernameRef = useRef('');
@@ -29,8 +30,8 @@ const Contact = (props) => {
     }
 
   return (
-    <Fragment>
-      <h1>Appointment Booking App</h1>
+    <section className={classes.contact}>
+      <h1>Have query? We will get back to you :D</h1>
       <form onSubmit={submitHandler}>
         <label> Name</label>
         <input id="username" type="text" name="username" ref={usernameRef} required />
@@ -44,7 +45,7 @@ const Contact = (props) => {
         
         <button> Book </button>
       </form>
-    </Fragment>
+    </section>
   );
 };
 

@@ -1,9 +1,15 @@
 import React from "react";
+//import { Fragment } from "react";
+import classes from './About.module.css';
+import logo from '../Image/generics.jpg';
 
 const About = () => {
   return (
-    <div>
-      <h2> About </h2>
+    <section className={classes.about}>
+
+      <h2 className={classes.header}> About </h2>
+      <div>
+      <img   className={classes.log}   src = {logo} alt= "Generics"/>
       <p>
 
         Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
@@ -27,7 +33,8 @@ const About = () => {
         take the hardships of the life of harsh condemn, we are accusing him?
         Him whom something large cisterns.
       </p>
-    </div>
+      </div>
+      </section>  
   );
 };
 

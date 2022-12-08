@@ -27,7 +27,14 @@
   background-color: grey;
 }
 
-.btn {
+.btn1 {
+  color: #080808;
+  margin: 10px 0;
+  position: absolute;
+  right: 6rem;
+  top: 0;
+}
+.btn2 {
   color: #080808;
   margin: 10px 0;
   position: absolute;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
@@ -12,8 +12,12 @@ import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
 import classes from "./Compontents/Layout/Header.module.css";
 import ProductDetails from "./Compontents/Products/ProductDetails";
+import AuthContext from "./Compontents/Store/AuthContext";
+import AuthForm from "./Compontents/Authentication/authForm";
 
 function App() {
+  const authCtx = useContext(AuthContext);
+
   const [cartIsShown, setCartIsShown] = useState(false);
   const showCartHandler = () => {
     setCartIsShown(true);
@@ -28,6 +32,12 @@ function App() {
       <h1 className={classes.h1}> The Generics </h1>
       <main>
         <Switch>
+        <Route path="/" exact>
+            <Home/>
+          </Route>
+          <Route path="/auth">
+            <AuthForm />
+          </Route>
           <Route path="/store" exact>
             <Products />
           </Route>

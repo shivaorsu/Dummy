@@ -1,9 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useContext } from "react";
 import classes from "./Header.module.css";
 //import CartButton from "../Cart/CartButton";
-import { NavLink } from "react-router-dom";
+import { NavLink,useHistory } from "react-router-dom";
+import AuthContext from "../Store/AuthContext";
 
 const Header = (props) => {
+  let number=3
+  const authCtx=useContext(AuthContext);
+  const history=useHistory();
+  const logoutHandler=()=>{
+    authCtx.logout();
+    history.replace("/auth");
+  }
   return (
     <Fragment>
 
@@ -16,12 +24,12 @@ const Header = (props) => {
         </div>
         {/* <button>Cart</button> */}
 
-        <button className={classes.btn} onClick={props.onShowCart}> Cart <span> 3 </span> </button>
-        
-       
-        
+        <button className={classes.btn1} onClick={props.onShowCart}> Cart {number} </button>
+        <button className={classes.btn2}  onClick={logoutHandler}>Logout</button>
 
+        
       </header>
+      
       
 
     </Fragment>

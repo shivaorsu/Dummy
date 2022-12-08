@@ -1,0 +1,27 @@
+.about{
+    margin: 2rem auto;
+    padding: 0 10rem;
+    
+
+}
+.about div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about p{
+    float: inline-end;
+}
+.header {
+    text-align: center;
+}
+
+.log {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    
+
+    
+    
+}

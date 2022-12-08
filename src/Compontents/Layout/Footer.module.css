@@ -5,10 +5,10 @@
     background-color: gray;
     text-align: center;
     width: 100%;
-    padding: 40px;
-    position: sticky;
+    padding: 10px 40px;
+    position: fixed;
     
-    bottom: 0%;
+    bottom: 0;
 }
 .container img{
     width: 5%;
