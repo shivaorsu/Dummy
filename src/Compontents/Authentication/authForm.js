@@ -25,6 +25,7 @@ const AuthForm = () => {
 
     const enteredEmail = emailInputRef.current.value;
     const eneteredPassword = passwordInputRef.current.value;
+    localStorage.setItem('email', enteredEmail);
 
     setIsLoading(true);
     let url;
@@ -74,6 +75,7 @@ const AuthForm = () => {
 
   return (
     <section className={classes.auth}>
+      <h1>Generics</h1>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={SubmitHandler}>
         <div className={classes.control}>

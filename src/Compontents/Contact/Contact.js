@@ -1,4 +1,4 @@
-import React, {useRef } from "react";
+import React, {Fragment, useRef } from "react";
 import classes from './Contact.module.css';
 
 const Contact = (props) => {
@@ -30,22 +30,18 @@ const Contact = (props) => {
     }
 
   return (
-    <section className={classes.contact}>
-      <h1>Have query? We will get back to you :D</h1>
-      <form onSubmit={submitHandler}>
-        <label> Name</label>
-        <input id="username" type="text" name="username" ref={usernameRef} required />
-        
-        <label> EmailId</label>
-
-        <input id="email" type="email" name="emailId" ref={emailRef} required />
-        
-        <label> Phone Number</label>
-        <input id="phonenumber" type="number" name="phonenumber" ref={phoneRef}/>
-        
-        <button> Book </button>
+    <Fragment>
+      <h1 className={classes.header}>Have query? We will get back to you :D </h1>
+      <form onSubmit={submitHandler} className={classes.form}>
+        <label className={classes.label}> Name</label> 
+        <input id="username" type="text" name="username" ref={usernameRef} required /><br></br>
+        <label className={classes.label}> EmailId</label>
+        <input id="email" type="email" name="emailId" ref={emailRef} required /><br></br>
+        <label className={classes.label}> Phone Number</label>
+        <input id="phonenumber" type="tel" name="phonenumber" ref={phoneRef}/> <br></br>
+        <button className={classes.button}>Submit</button>
       </form>
-    </section>
+    </Fragment>
   );
 };
 

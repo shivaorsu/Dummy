@@ -31,7 +31,7 @@ const Cart = (props) => {
         <CartItems
           key={item.id}
           id={item.id}
-          img={item.img}
+          img={item.image}
           title={item.title}
           quantity={item.quantity}
           price={item.price}

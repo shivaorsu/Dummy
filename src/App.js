@@ -1,5 +1,5 @@
 import React, { useState,useContext } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect,Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
 import Footer from "./Compontents/Layout/Footer";
@@ -16,7 +16,7 @@ import AuthContext from "./Compontents/Store/AuthContext";
 import AuthForm from "./Compontents/Authentication/authForm";
 
 function App() {
-  const authCtx = useContext(AuthContext);
+  //const authCtx = useContext(AuthContext);
 
   const [cartIsShown, setCartIsShown] = useState(false);
   const showCartHandler = () => {
@@ -38,9 +38,12 @@ function App() {
           <Route path="/auth">
             <AuthForm />
           </Route>
+          
+          
           <Route path="/store" exact>
             <Products />
           </Route>
+          
 
           <Route path="/about">
             <About />
@@ -56,6 +59,10 @@ function App() {
 
           <Route path="/store/:productDetails">
             <ProductDetails />
+            </Route>
+            <Route path = "*">
+            <Redirect to='/'></Redirect>
+          
           </Route>
         </Switch>
       </main>
