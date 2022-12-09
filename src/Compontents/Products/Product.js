@@ -15,7 +15,7 @@ const Product = (props) => {
   return (
     <Fragment>
       <li className={classes.list}>
-        <Link to={{
+      <Link to={{
                pathname: "/store/productDetails",
            
             }}>

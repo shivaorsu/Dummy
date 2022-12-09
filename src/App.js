@@ -62,6 +62,7 @@ function App() {
             <Contact />
           </Route>
           )}
+         
 
           <Route path="/store/:productDetails">
             <ProductDetail />
