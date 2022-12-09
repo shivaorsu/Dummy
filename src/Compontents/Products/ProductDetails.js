@@ -35,12 +35,7 @@ const ProductDetail = (props) => {
           <p className={classes.reviews}> aryanshi178 </p>
           <p>⭐⭐⭐⭐</p>
           <p> Excellent will buy again</p>
-          <p className={classes.reviews}> aryanshi178 </p>
-          <p>⭐⭐⭐⭐</p>
-          <p> Excellent will buy again</p>
-          <p className={classes.reviews}> aryanshi178 </p>
-          <p>⭐⭐⭐⭐</p>
-          <p> Excellent will buy again</p>
+         
           </div>
           <h1>More products like this</h1>
         </section>

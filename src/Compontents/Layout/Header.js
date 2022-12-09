@@ -42,7 +42,7 @@ const Header = (props) => {
 
         <button className={classes.btn1} onClick={props.onShowCart}>
           {" "}
-          Cart {" "}
+          Cart 2 {" "}
         </button>
         <button className={classes.btn2} onClick={logoutHandler}>
           Logout

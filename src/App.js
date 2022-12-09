@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext,Fragment } from "react";
 import { Redirect,Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
@@ -11,9 +11,10 @@ import About from "./Compontents/About/About";
 import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
 import classes from "./Compontents/Layout/Header.module.css";
-import ProductDetails from "./Compontents/Products/ProductDetails";
-import AuthContext from "./Compontents/Store/AuthContext";
+import ProductDetail from "./Compontents/Products/ProductDetails";
+//import AuthContext from "./Compontents/Store/AuthContext";
 import AuthForm from "./Compontents/Authentication/authForm";
+//import CartContext from "./Compontents/Store/cart-context";
 
 function App() {
   //const authCtx = useContext(AuthContext);
@@ -58,7 +59,7 @@ function App() {
           </Route>
 
           <Route path="/store/:productDetails">
-            <ProductDetails />
+            <ProductDetail />
             </Route>
             <Route path = "*">
             <Redirect to='/'></Redirect>
