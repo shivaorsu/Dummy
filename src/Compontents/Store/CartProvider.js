@@ -16,23 +16,27 @@ const CartProvider = (props) => {
         const updatedItems = i.splice(itemToRemove, 1);
         console.log(itemToRemove, i, updatedItems);
         setItems(i);
-        // axios.delete(
-        //   `https://crudcrud.com/api/21eb06cae255450f902224de607507c5/cart${email}/${id}`
-        // );
       };
-
-    // }
-    // const removeItemHandler = (id) => {
-    //   let itemToRemove = items.findIndex((item) => item.id === id);
-    //   const i = [...items];
-    //   const updatedItems = i.splice(itemToRemove, 1);
-    //   console.log(itemToRemove, i, updatedItems);
+    //   const emptyCartHandler = () => {
+    //     setItems([]);
+    //   };
+    
+    //   const initializeCartHandler = (items) => {
+    //     setItems(items);
+    //   };
+    
+    //   const mapIDHandler = (id) => {
+    //     items.id = id;
+    //   };
   
     const cartContext = {
         items: items,
         totalAmount: 0,
         addItem:addCartHandler,
-        removeItem:removeItemHandler
+        removeItem:removeItemHandler,
+        // emptyCart: emptyCartHandler,
+        // initilizeCart: initializeCartHandler,
+        //    mapID: mapIDHandler
 
 
     }

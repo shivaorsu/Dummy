@@ -1,4 +1,4 @@
-import React, { useState,useContext,Fragment } from "react";
+import React, { useState,useContext } from "react";
 import { Redirect,Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
@@ -12,12 +12,12 @@ import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
 import classes from "./Compontents/Layout/Header.module.css";
 import ProductDetail from "./Compontents/Products/ProductDetails";
-//import AuthContext from "./Compontents/Store/AuthContext";
+import AuthContext from "./Compontents/Store/AuthContext";
 import AuthForm from "./Compontents/Authentication/authForm";
 //import CartContext from "./Compontents/Store/cart-context";
 
 function App() {
-  //const authCtx = useContext(AuthContext);
+  const authCtx = useContext(AuthContext);
 
   const [cartIsShown, setCartIsShown] = useState(false);
   const showCartHandler = () => {
@@ -33,30 +33,35 @@ function App() {
       <h1 className={classes.h1}> The Generics </h1>
       <main>
         <Switch>
-        <Route path="/" exact>
+        {authCtx.isLoggedIn &&(<Route path="/" exact>
             <Home/>
-          </Route>
+          </Route>)}
           <Route path="/auth">
             <AuthForm />
           </Route>
-          
-          
-          <Route path="/store" exact>
+          {!authCtx.isLoggedIn && (
+            <Route path="/auth">
+              <AuthForm />
+            </Route>
+          )}
+          {authCtx.isLoggedIn &&(<Route path="/store" exact>
             <Products />
           </Route>
-          
+          )}
 
-          <Route path="/about">
+          {authCtx.isLoggedIn &&(<Route path="/about">
             <About />
-          </Route>
+          </Route>)}
 
-          <Route path="/" exact>
+          {/* {authCtx.isLoggedIn &&(<Route path="/" exact>
             <Home />
           </Route>
+          )} */}
 
-          <Route path="/contact_us">
+          {authCtx.isLoggedIn &&(<Route path="/contact_us">
             <Contact />
           </Route>
+          )}
 
           <Route path="/store/:productDetails">
             <ProductDetail />
@@ -68,7 +73,7 @@ function App() {
         </Switch>
       </main>
       <Footer />
-    </CartProvider>
+      </CartProvider>
   );
 }
 export default App;
