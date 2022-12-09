@@ -27,7 +27,7 @@ const Cart = (props) => {
         <span className={classes.item}> PRICE </span>
         <span className={classes.item}> QUANTITY </span>
       </div>
-      {cartCtx.item.map((item) => (
+      {cartCtx.items.map((item) => (
         <CartItems
           key={item.id}
           id={item.id}
