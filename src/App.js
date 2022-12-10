@@ -1,4 +1,4 @@
-import React, { useState,useContext } from "react";
+import React, { useState,useContext, useEffect } from "react";
 import { Redirect,Route, Switch } from "react-router-dom";
 
 // import Cart from "./Compontents/Cart/Cart";
@@ -14,10 +14,16 @@ import classes from "./Compontents/Layout/Header.module.css";
 import ProductDetail from "./Compontents/Products/ProductDetails";
 import AuthContext from "./Compontents/Store/AuthContext";
 import AuthForm from "./Compontents/Authentication/authForm";
-//import CartContext from "./Compontents/Store/cart-context";
+import CartContext from "./Compontents/Store/cart-context";
 
 function App() {
+  if(localStorage.getItem('email')){
+    localStorage.getItem("email","")
+  }
   const authCtx = useContext(AuthContext);
+  const cartCtx=useContext(CartContext)
+  let email = localStorage.getItem("email").replace(".", "").replace("@", "");
+
 
   const [cartIsShown, setCartIsShown] = useState(false);
   const showCartHandler = () => {
@@ -26,6 +32,18 @@ function App() {
   const HideCartHandler = () => {
     setCartIsShown(false);
   };
+  useEffect(()=>{
+    cartCtx.emptyCart();
+    axios.get(`https://crudcrud.com/api/7259e54426de4ccf8de2c77cbc9765c2/cart${email}`).then((res)=>{
+      console.log(res.data)
+      res.data.forEach((item)=>{
+        cartCtx.addItem(item);
+      })
+    })
+    .catch((error)=>{
+      alert(error)
+    })
+  },[email])
   return (
     <CartProvider>
       {cartIsShown && <Cart onClose={HideCartHandler} />}
