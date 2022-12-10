@@ -1,8 +1,10 @@
 import { Fragment, useContext } from "react";
 import CartContext from "../Store/cart-context";
 import classes from "./CartItem.module.css";
+import axios from "axios";
 
 const CartItem = (props) => {
+  let email = localStorage.getItem("email").replace(".", "").replace("@", "");
   const cartCntx = useContext(CartContext);
   const onAddHandler = () => {
     console.log(props);
@@ -12,6 +14,11 @@ const CartItem = (props) => {
   const onRemoveHandler = (event) => {
     console.log(props);
     cartCntx.removeItem(props);
+    cartCntx.removeItem(props);
+    const id= (props._id);
+    console.log(id)
+    axios.delete( `https://crudcrud.com/api/66ad4bc62ba94bb8937980d9026a5a8f/cart${email}/${id}`)
+
   };
 
   return (

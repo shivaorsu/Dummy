@@ -15,6 +15,7 @@ import ProductDetail from "./Compontents/Products/ProductDetails";
 import AuthContext from "./Compontents/Store/AuthContext";
 import AuthForm from "./Compontents/Authentication/authForm";
 import CartContext from "./Compontents/Store/cart-context";
+import axios from "axios";
 
 function App() {
   if(localStorage.getItem('email')){
@@ -32,13 +33,17 @@ function App() {
   const HideCartHandler = () => {
     setCartIsShown(false);
   };
-  useEffect(()=>{
-    cartCtx.emptyCart();
-    axios.get(`https://crudcrud.com/api/7259e54426de4ccf8de2c77cbc9765c2/cart${email}`).then((res)=>{
-      console.log(res.data)
-      res.data.forEach((item)=>{
-        cartCtx.addItem(item);
-      })
+  useEffect(() => {
+    if (!email) return;
+     axios.get(`https://crudcrud.com/api/7259e54426de4ccf8de2c77cbc9765c2/cart${email}`).then((res) => {
+       const data= (res.data)
+       for (const key in data) {
+         const item = data[key];
+         item._id = key;
+         cartCtx.mapID(item)
+       }
+ 
+  
     })
     .catch((error)=>{
       alert(error)
