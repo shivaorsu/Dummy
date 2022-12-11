@@ -1,10 +1,11 @@
 .wraper{
     margin: 0 auto;
     width: 100%;
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 5rem;
     
 
 
@@ -13,5 +14,5 @@
     
     font-family: "Metal Mania";
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
 }

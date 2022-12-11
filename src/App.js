@@ -1,12 +1,12 @@
-import React, { useState,useContext, useEffect } from "react";
+import { useState,useContext, useEffect } from "react";
 import { Redirect,Route, Switch } from "react-router-dom";
-
+import React,{Suspense} from "react";
 import Cart from "./Compontents/Cart/Cart";
 import Footer from "./Compontents/Layout/Footer";
 import Header from "./Compontents/Layout/Header";
 //import Cart from "./Compontents/Cart/Cart";
 import Products from "./Compontents/Products/Products";
-import Home from "./Compontents/Homee/Home";
+//import Home from "./Compontents/Homee/Home";
 import About from "./Compontents/About/About";
 import CartProvider from "./Compontents/Store/CartProvider";
 import Contact from "./Compontents/Contact/Contact";
@@ -17,8 +17,11 @@ import AuthForm from "./Compontents/Authentication/authForm";
 import CartContext from "./Compontents/Store/cart-context";
 import axios from "axios";
 
+const Home = React.lazy(()=>import ('./Compontents/Homee/Home'));
+
 
 function App() {
+
   const cartCtx= useContext(CartContext)
   
   if(!localStorage.getItem('email')) {
@@ -39,7 +42,7 @@ function App() {
   const hideCartHandler = () => {
     setCartIsShown(false);
   };
-
+console.log(authCtx.isLoggedIn)
  useEffect(() => {
    if (!email) return;
     axios.get(`https://crudcrud.com/api/faae72b079de4bd79023fcb94065ebe9/cart${email}`).then((res) => {
@@ -62,6 +65,7 @@ function App() {
       {authCtx.isLoggedIn && <Header onShowCart={showCartHandler} />}
       <h1 className={classes.h1}> The Generics </h1>
       <main>
+        <Suspense fallback={<div className="centered">Loading....</div>}>
         <Switch>
         {authCtx.isLoggedIn &&(<Route path="/" exact>
             <Home/>
@@ -70,7 +74,7 @@ function App() {
             <AuthForm />
           </Route>
           {!authCtx.isLoggedIn && (
-            <Route path="/auth">
+            <Route path="/auth"exact>
               <AuthForm />
             </Route>
           )}
@@ -102,6 +106,7 @@ function App() {
             <Redirect to="/"></Redirect>
           </Route>
         </Switch>
+        </Suspense>
       </main>
       <Footer/>
       </CartProvider>

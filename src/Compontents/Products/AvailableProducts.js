@@ -2,6 +2,8 @@ import React,{useContext,useEffect} from "react";
 import Product from "./Product";
 import axios from "axios";
 import CartContext from "../Store/cart-context";
+import classes from './AvailableProducts.module.css';
+
 
 
 const AvailableProducts = () => {
@@ -68,7 +70,7 @@ const AvailableProducts = () => {
   },[]);
 
   return (
-    <section>
+    <section className={classes.wraper}>
       <ul>
         {productsArr.map((prod) => {
           return (
