@@ -17,7 +17,7 @@ const CartItem = (props) => {
     cartCntx.removeItem(props);
     const id= (props._id);
     console.log(id)
-    axios.delete( `https://crudcrud.com/api/66ad4bc62ba94bb8937980d9026a5a8f/cart${email}/${id}`)
+    axios.delete( `https://crudcrud.com/api/faae72b079de4bd79023fcb94065ebe9/cart${email}/${id}`)
 
   };
 

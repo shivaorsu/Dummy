@@ -18,12 +18,13 @@ import CartContext from "./Compontents/Store/cart-context";
 import axios from "axios";
 
 function App() {
+  const cartCtx=useContext(CartContext)
   if(localStorage.getItem('email')){
     localStorage.getItem("email","")
   }
   const authCtx = useContext(AuthContext);
-  const cartCtx=useContext(CartContext)
-  let email = localStorage.getItem("email").replace(".", "").replace("@", "");
+  
+  //let email = localStorage.getItem("email").replace(".", "").replace("@", "");
 
 
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -35,7 +36,7 @@ function App() {
   };
   useEffect(() => {
     if (!email) return;
-     axios.get(`https://crudcrud.com/api/7259e54426de4ccf8de2c77cbc9765c2/cart${email}`).then((res) => {
+     axios.get(`https://crudcrud.com/api/faae72b079de4bd79023fcb94065ebe9/cart${email}`).then((res) => {
        const data= (res.data)
        for (const key in data) {
          const item = data[key];
@@ -48,7 +49,7 @@ function App() {
     .catch((error)=>{
       alert(error)
     })
-  },[email])
+  },[email,cartCtx])
   return (
     <CartProvider>
       {cartIsShown && <Cart onClose={HideCartHandler} />}
