@@ -19,49 +19,54 @@ import axios from "axios";
 
 
 function App() {
-  const cartCtx=useContext(CartContext)
-  if(localStorage.getItem('email')){
-    localStorage.getItem("email","")
+  const cartCtx= useContext(CartContext)
+  
+  if(!localStorage.getItem('email')) {
+    localStorage.setItem("email","")
   }
   const authCtx = useContext(AuthContext);
-  
   let email = localStorage.getItem("email").replace(".", "").replace("@", "");
 
 
-  const [cartIsShown, setCartIsShown] = useState(false);
+
+
+  const [cartisShown, setCartIsShown] = useState(false);
+
   const showCartHandler = () => {
     setCartIsShown(true);
   };
-  const HideCartHandler = () => {
+
+  const hideCartHandler = () => {
     setCartIsShown(false);
   };
-  useEffect(() => {
-    if (!email) return;
-     axios.get(`https://crudcrud.com/api/7259e54426de4ccf8de2c77cbc9765c2/cart${email}`).then((res) => {
-       const data= (res.data)
-       for (const key in data) {
-         const item = data[key];
-         item._id = key;
-         cartCtx.mapID(item)
-       }
- 
-  
+
+ useEffect(() => {
+   if (!email) return;
+    axios.get(`https://crudcrud.com/api/faae72b079de4bd79023fcb94065ebe9/cart${email}`).then((res) => {
+      const data= (res.data)
+      for (const key in data) {
+        const item = data[key];
+        item._id = key;
+        cartCtx.mapID(item)
+      }
+      
+    }).catch((err) => {
+      alert(err)
     })
-    .catch((error)=>{
-      alert(error)
-    })
-  },[email,cartCtx])
+  }, [email, cartCtx])
+
   return (
     <CartProvider>
-      {cartIsShown && <Cart onClose={HideCartHandler} />}
-      <Header onShowCart={showCartHandler} />
+      {cartisShown && <Cart onClose={hideCartHandler} />}
+
+      {authCtx.isLoggedIn && <Header onShowCart={showCartHandler} />}
       <h1 className={classes.h1}> The Generics </h1>
       <main>
         <Switch>
-        {/* {authCtx.isLoggedIn &&(<Route path="/" exact>
+        {authCtx.isLoggedIn &&(<Route path="/" exact>
             <Home/>
-          </Route>)} */}
-          <Route path="/auth">
+          </Route>)}
+          <Route path="/" exact>
             <AuthForm />
           </Route>
           {!authCtx.isLoggedIn && (
@@ -69,37 +74,38 @@ function App() {
               <AuthForm />
             </Route>
           )}
-          {authCtx.isLoggedIn &&(<Route path="/store" exact>
-            <Products />
-          </Route>
+          {authCtx.isLoggedIn && (
+            <Route path="/store" exact>
+              <Products />
+            </Route>
           )}
 
-          {authCtx.isLoggedIn &&(<Route path="/about">
-            <About />
-          </Route>)}
-
-          {authCtx.isLoggedIn &&(<Route path="/" exact>
-            <Home />
-          </Route>
+          {authCtx.isLoggedIn && (
+            <Route path="/about">
+              <About />
+            </Route>
           )}
-
-          {authCtx.isLoggedIn &&(<Route path="/contact_us">
+          {authCtx.isLoggedIn && (
+            <Route path="/" exact>
+              <Home />
+            </Route>
+          )}
+          <Route path="/contact_us">
             <Contact />
           </Route>
-          )}
-         
 
-          <Route path="/store/:productDetails">
+          <Route path="/products/:product_id">
             <ProductDetail />
-            </Route>
-            <Route path = "*">
-            <Redirect to='/'></Redirect>
-          
+          </Route>
+
+          <Route path="*">
+            <Redirect to="/"></Redirect>
           </Route>
         </Switch>
       </main>
-      <Footer />
+      <Footer/>
       </CartProvider>
   );
 }
+
 export default App;
