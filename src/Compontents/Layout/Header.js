@@ -15,7 +15,7 @@ const Header = (props) => {
     setQuantity(cartCtx?.items?.length || 0);
   }, [cartCtx.items]);
 
-  console.log(quantity);
+  //console.log(quantity);
 
   const logoutHandler = () => {
     authCtx.logout();
@@ -42,7 +42,7 @@ const Header = (props) => {
 
         <button className={classes.btn1} onClick={props.onShowCart}>
           {" "}
-          Cart 2 {" "}
+          Cart {quantity}
         </button>
         <button className={classes.btn2} onClick={logoutHandler}>
           Logout
